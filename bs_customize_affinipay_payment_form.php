@@ -11,7 +11,7 @@ function bs_affinipay_charge_success(){
 }
 
 add_action( 'affinipay_charge_error', 'bs_affinipay_charge_error', 10, $chargeInfo );
-function bs_affinipay_charge_errpr() {
+function bs_affinipay_charge_error() {
     custom_logs("There was an error when processing a payment using the Affinipay Wordpress Plugin");
     custom_logs($chargeInfo);
 }
