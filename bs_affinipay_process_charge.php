@@ -1,28 +1,7 @@
 <?php
 /* Purpose of this script:
- * Customize the Affinipay (LawPay) Payment Pages=
+ * Process Affinipay (LawPay) Charge
  *  */
-
-
-
-// Enqueue Scripts to link to Lawpay Scripts (Affinipay)
-
-write_log('Found bs-lawpay-intergration');
-
-function bs_rlp_customizations_assets() {
-    // Only load scripts if page is a lawpay payment page
-    if (is_page(440)) {
-
-    // Register the scripts
-    wp_register_script( 'bs-rlp-affinipay-fieldGen', 'https://cdn.affinipay.com/hostedfields/1.1.1/fieldGen_1.1.1.js','','',true);
-    wp_register_script( 'bs-rlp-lawpay-customization', BS_NAME_PLUGIN_URL . 'lawpay/js/lawpay-integration.js', array('jquery'), '1.0', true );
-    wp_script_add_data( 'bs-rlp-affinipay-fieldGen', array( 'crossorigin' ) , array( 'anonymous' ) );
-    // Enqueue the scripts
-    wp_enqueue_script( 'bs-rlp-affinipay-fieldGen' );
-    wp_enqueue_script( 'bs-rlp-lawpay-customization' );
-    }    
-}
-add_action( 'wp_enqueue_scripts', 'bs_rlp_customizations_assets' );
 
 write_log('Adding AffiniPAY hook');
 try {
